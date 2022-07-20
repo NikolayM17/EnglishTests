@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using EnglishTests.Interfaces;
+using EnglishTests.Models;
 
 namespace EnglishTests.Parse
 {
@@ -15,12 +16,12 @@ namespace EnglishTests.Parse
 
 		}
 
-		public (string, string[]) ParseLine(string line)
+		IEnumerable<RowModel> IParsable.Parse(IEnumerable<string> lines)
 		{
 			throw new NotImplementedException();
 		}
 
-		IEnumerable<(string, string[])> IParsable.Parse(IEnumerable<string> lines)
+		RowModel IParsable.ParseLine(string line)
 		{
 			throw new NotImplementedException();
 		}

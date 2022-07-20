@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnglishTests.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +9,8 @@ namespace EnglishTests.Interfaces
 {
 	public interface IParsable
 	{
-		IEnumerable<(string, string[])> Parse(IEnumerable<string> lines);
+		IEnumerable<RowModel> Parse(IEnumerable<string> lines);
 
-		(string, string[]) ParseLine(string line = "Above - выше, больше");
+		RowModel ParseLine(string line = "Above - выше, больше");
 	}
 }

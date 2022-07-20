@@ -12,13 +12,18 @@ namespace EnglishTests.FileRepositories
 	{
 		private FileStream? _file;
 
-		private string _filePath;
+		public string FilePath { get; }
+		public int RowCount
+		{
+			get
+			{
+				return File.ReadLines(FilePath).Count();
+			}
+		}
 
 		public TxtFileRepository(string path)
 		{
-			_filePath = path;
-
-			/*OpenFileForReading(_filePath);*/
+			FilePath = path;
 		}
 
 		public void OpenFileForReading(string path)
@@ -30,7 +35,15 @@ namespace EnglishTests.FileRepositories
 		{
 			foreach(var number in lineNumbers)
 			{
-				yield return File.ReadLines(_filePath).Skip(number - 1).FirstOrDefault();
+				yield return File.ReadLines(FilePath).Skip(number - 1).FirstOrDefault();
+			}
+		}
+
+		public IEnumerable<string?> GetLines(IEnumerable<int> lineNumbers)
+		{
+			foreach (var number in lineNumbers)
+			{
+				yield return File.ReadLines(FilePath).Skip(number - 1).FirstOrDefault();
 			}
 		}
 

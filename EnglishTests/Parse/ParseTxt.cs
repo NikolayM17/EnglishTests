@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using EnglishTests.Interfaces;
+using EnglishTests.Models;
 
 namespace EnglishTests.Parse
 {
 	public class ParseTxt : IParsable
 	{
-		public IEnumerable<(string, string[])> Parse(IEnumerable<string> lines)
+		public IEnumerable<RowModel> Parse(IEnumerable<string> lines)
 		{
 			foreach (var line in lines)
 			{
@@ -18,14 +20,24 @@ namespace EnglishTests.Parse
 			}
 		}
 
-		public (string, string[]) ParseLine(string line = "Above - выше, больше")
+		public RowModel? ParseLine(string line = "Above - выше, больше")
 		{
-			var translatePartsOfLine = line.Split(" - ");
+			string pattern = @" \W ";
+			var regex = new Regex(pattern);
 
-			string lineForTranslate = translatePartsOfLine[0];
-			string[] translateLines = translatePartsOfLine[1].Split(", ");
+			var translatePartsOfLine = regex.Split(line);
 
-			return new ValueTuple<string, string[]>(lineForTranslate, translateLines);
+			try
+			{
+				string lineForTranslate = translatePartsOfLine[0];
+				string[] translateLines = translatePartsOfLine[1].Split(", ");
+
+				return new RowModel(lineForTranslate, translateLines);
+			}
+			catch (IndexOutOfRangeException ex)
+			{
+				return new RowModel(translatePartsOfLine.First(), null);
+			}
 		}
 	}
 }

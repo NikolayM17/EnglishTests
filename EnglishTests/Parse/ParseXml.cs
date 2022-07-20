@@ -5,22 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 using EnglishTests.Interfaces;
+using EnglishTests.Models;
 
 namespace EnglishTests.Parse
 {
 	internal class ParseXml : IParsable
 	{
-		public void Parse(IEnumerable<string> lines)
-		{
-
-		}
-
-		public (string, string[]) ParseLine(string line)
+		public IEnumerable<RowModel> Parse(IEnumerable<string> lines)
 		{
 			throw new NotImplementedException();
 		}
 
-		IEnumerable<(string, string[])> IParsable.Parse(IEnumerable<string> lines)
+		public RowModel ParseLine(string line = "Above - выше, больше")
 		{
 			throw new NotImplementedException();
 		}

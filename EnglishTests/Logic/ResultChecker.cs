@@ -1,11 +1,7 @@
-﻿using EnglishTests.Enums;
-using EnglishTests.Interfaces;
+﻿using EnglishTests.Interfaces;
 using EnglishTests.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EnglishTests.Logic
 {

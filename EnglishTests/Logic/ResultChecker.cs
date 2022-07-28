@@ -7,18 +7,29 @@ namespace EnglishTests.Logic
 {
 	public class ResultChecker : IResultChecker
 	{
-		public ResultModel GetTotalResult(IEnumerable<ToCheckDataModel> data)
+		public List<int> FailedIndexes { get; }
+
+		public ResultChecker()
+		{
+			FailedIndexes = new List<int>();
+		}
+
+		public ResultModel GetTotalResult(List<CheckDataModel> data)
 		{
 			var result = new ResultModel(data.Count());
 
-			foreach (var dataModel in data)
+			for (int i = 0; i < data.Count(); i++)
 			{
-				if (dataModel.RowModel.EqualWith(
-					dataModel.ОbjectToCompare,
-					dataModel.CompareWith,
-					dataModel.CompareMode))
+				if (data[i].RowViewModel.EqualWith(
+					data[i].ОbjectToСheck,
+					data[i].CompareWith,
+					data[i].CompareMode))
 				{
 					result++;
+				}
+				else
+				{
+					FailedIndexes.Add(i);
 				}
 			}
 

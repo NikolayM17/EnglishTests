@@ -1,5 +1,7 @@
 ﻿using EnglishTests.Enums;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace EnglishTests.Models
@@ -20,37 +22,16 @@ namespace EnglishTests.Models
 			LeftPart = leftPart;
 			RightPart = rightPart;
 		}
-		
-		/*
-		public override bool Equals(object? obj)
-		{
-			bool arePartsEqual = false;
-
-			if (obj is null)
-			{
-				return LeftPart is null || RightPart is null;
-			}
-			else if (obj is string)
-			{
-				arePartsEqual = ((string)obj).ToLower() == LeftPart.ToLower();
-			}
-			else if (obj is string[])
-			{
-				arePartsEqual = CompareWithRightPart((string[])obj);
-			}
-
-			return arePartsEqual;
-		}*/
 
 		public bool EqualWith(object? obj, RowModelPart compareWith, CompareMode mode)
-			=> mode == CompareMode.Hight ?
-			HightCompare(obj, compareWith) : LightCompare(obj, compareWith);
+			=> mode == CompareMode.Hard ?
+			HardLevelCompare(obj, compareWith) : LightCompare(obj, compareWith);
 
 		private bool LightCompare(object? obj, RowModelPart compareWith)
 			=> compareWith == RowModelPart.LeftPart ?
 			CompareWithLeftPart((string)obj) : CompareWithRightPart((string)obj);
 
-		private bool HightCompare(object? obj, RowModelPart compareWith)
+		private bool HardLevelCompare(object? obj, RowModelPart compareWith)
 		{
 			if (obj is string o && (
 				compareWith == RowModelPart.LeftPart || RightPart.Length == 1))
@@ -71,6 +52,20 @@ namespace EnglishTests.Models
 			return new Tuple<bool, bool>(
 				CompareWithLeftPart(model.LeftPart),
 				CompareWithRightPart(model.RightPart));
+		}
+
+		public Tuple<bool, bool> Equals(string str)
+		{
+			return new Tuple<bool, bool>(
+				CompareWithLeftPart(str),
+				CompareWithRightPart(str));
+		}
+
+		public IEnumerable<string> ToStringArray()
+		{
+			var result = new List<string>(RightPart) { LeftPart };  //	result.Add(LeftPart);
+
+			return result;
 		}
 
 		private string[] ToLower(string[] arr)
@@ -99,7 +94,7 @@ namespace EnglishTests.Models
 		private bool CompareWithRightPart(string str)
 			=> ToLower(RightPart).Contains(str.ToLower());
 
-		private bool LightCompareWithRightPart(string[] arr)
+		private bool LightLevelCompareWithRightPart(string[] arr)
 		{
 			var tempRightPart = ToLower(RightPart);
 			var tempArr = ToLower(arr);

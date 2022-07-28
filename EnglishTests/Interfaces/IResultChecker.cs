@@ -5,6 +5,6 @@ namespace EnglishTests.Interfaces
 {
 	public interface IResultChecker
 	{
-		ResultModel GetTotalResult(IEnumerable<ToCheckDataModel> data);
+		ResultModel GetTotalResult(List<CheckDataModel> data);
 	}
 }

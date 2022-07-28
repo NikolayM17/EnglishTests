@@ -3,6 +3,6 @@
 	public enum CompareMode
 	{
 		Light,
-		Hight
+		Hard
 	}
 }

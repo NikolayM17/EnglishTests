@@ -219,30 +219,30 @@ namespace TestProject2
 
 			var rowModels = parse.Parse(fileLines).ToList();
 
-			List<ToCheckDataModel> toCheckValues = new();
+			List<CheckDataModel> toCheckValues = new();
 
-			toCheckValues.Add(new ToCheckDataModel
+			toCheckValues.Add(new CheckDataModel
 			{
-				RowModel = rowModels[0],
-				ŒbjectToCompare = expectedAnswers[0],
+				RowViewModel = rowModels[0],
+				ŒbjectTo—heck = expectedAnswers[0],
 				CompareWith = RowModelPart.LeftPart,
 				CompareMode = CompareMode.Light
 			});
 
-			toCheckValues.Add(new ToCheckDataModel
+			toCheckValues.Add(new CheckDataModel
 			{
-				RowModel = rowModels[1],
-				ŒbjectToCompare = expectedAnswers[1],
+				RowViewModel = rowModels[1],
+				ŒbjectTo—heck = expectedAnswers[1],
 				CompareWith = RowModelPart.RightPart,
-				CompareMode = CompareMode.Hight
+				CompareMode = CompareMode.Hard
 			});
 
-			toCheckValues.Add(new ToCheckDataModel
+			toCheckValues.Add(new CheckDataModel
 			{
-				RowModel = rowModels[2],
-				ŒbjectToCompare = expectedAnswers[2],
+				RowViewModel = rowModels[2],
+				ŒbjectTo—heck = expectedAnswers[2],
 				CompareWith = RowModelPart.RightPart,
-				CompareMode = CompareMode.Hight
+				CompareMode = CompareMode.Hard
 			});
 
 			var result = new ResultChecker().GetTotalResult(toCheckValues);

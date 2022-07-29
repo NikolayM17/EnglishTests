@@ -129,7 +129,7 @@ namespace TeEn.Frames
 
 			MessageBox.Show(_fileService.ResultChecker.GetTotalResult(_fileService.FileData).ToString());
 
-			if (_fileService.ResultChecker.FailedIndexes.Count > 0)
+			/*if (_fileService.ResultChecker.FailedIndexes.Count > 0)
 			{
 				string message = "";
 
@@ -141,7 +141,7 @@ namespace TeEn.Frames
 				MessageBox.Show(message);
 
 				message = "";
-			}
+			}*/
 
 			foreach (int index in _fileService.ResultChecker.FailedIndexes)
 			{

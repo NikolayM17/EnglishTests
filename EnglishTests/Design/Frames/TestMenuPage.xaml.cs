@@ -1,4 +1,5 @@
-﻿using EnglishTests.Enums;
+﻿using EnglishTests.Design;
+using EnglishTests.Enums;
 using EnglishTests.FileRepositories;
 using EnglishTests.Interfaces;
 using EnglishTests.Logic;
@@ -36,42 +37,7 @@ namespace TeEn.Frames
 		{
 			if (sender is Label choiceLabel)
 			{
-				switch(choiceLabel.Content)
-				{
-					case "5":
-						/*IParsable parse = new ParseTxt();
-
-						var fileRepository = new TxtFileRepository("file.txt");
-
-						var lines = fileRepository.GetLines(new RandomRange(0, fileRepository.RowCount).GetRange().ToArray()[0..5]);
-
-						var rowModels = parse.Parse(lines).ToList();
-
-						var randomParts = rowModels.Select(row => RandomRange.GetRandomElementOf(row)).ToList();
-
-						for (int i = 0; i < rowModels.Count; i++)
-						{
-							rowModels[i].Index = randomParts[i].Item2;
-						}
-
-						var checkDataModels = new List<CheckDataModel>();
-
-						for (int i = 0; i < rowModels.Count; i++)
-						{
-							checkDataModels.Add(new CheckDataModel()
-							{
-								RowViewModel = rowModels[i],
-								CompareWith = (RowModelPart)(Convert.ToInt32(randomParts[i].Item1 == RowModelPart.LeftPart)),
-								CompareMode = CompareMode.Light
-							});
-						}*/
-
-						NavigationService.Navigate(new TestPage("file.txt", 5, CompareMode.Light));
-
-						break;
-					default:
-						break;
-				}
+				NavigationService.Navigate(new TestPage("file.txt", int.Parse(choiceLabel.Content.ToString()), CompareMode.Light));
 			}
 		}
 		private void ChoiceLabel_MouseUp(object sender, MouseButtonEventArgs e)
@@ -81,7 +47,27 @@ namespace TeEn.Frames
 
 		private void wordsLabel_MouseDown(object sender, MouseButtonEventArgs e)
 		{
+			var childWindow = new InputWindow();
 
+			var window = Window.GetWindow(this);
+
+			childWindow.Left = window.Left + window.Width / 2 - childWindow.Width / 2;
+			childWindow.Top = window.Top + window.Height / 2 - childWindow.Height / 2;
+
+			if (childWindow.ShowDialog() == false)
+			{
+				if (sender is Label choiceLabel && int.TryParse(childWindow.wordsCountTextBox.Text, out int wordsCount))
+				{
+					NavigationService.Navigate(new TestPage("file.txt", wordsCount, CompareMode.Light));
+				}
+
+				/*MessageBox.Show(childWindow.wordsCountTextBox.Text);*/
+			}
+
+			/*if (sender is Label choiceLabel)
+			{
+				NavigationService.Navigate(new TestPage("file.txt", int.Parse(choiceLabel.Content.ToString()), CompareMode.Light));
+			}*/
 		}
 		private void wordsLabel_MouseUp(object sender, MouseButtonEventArgs e)
 		{

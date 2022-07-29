@@ -79,6 +79,82 @@
 		</Setter>
 	</Style>
 
+	<Style x:Key="InputFooterItems" BasedOn="{StaticResource {x:Type Label}}" TargetType="{x:Type Label}">
+		<Setter Property="Foreground" Value="#FF000B65"/>
+		<Setter Property="FontFamily" Value="Stark"/>
+		<Setter Property="FontSize" Value="25"/>
+		<Setter Property="FontWeight" Value="Normal"/>
+		<Setter Property="BorderBrush" Value="White"/>
+		<Setter Property="Visibility" Value="Visible"/>
+		<Setter Property="VerticalAlignment" Value="Bottom"/>
+		<Setter Property="Margin" Value="10,0"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Label">
+					<Border
+							BorderThickness="{TemplateBinding BorderThickness}"
+							BorderBrush="{TemplateBinding BorderBrush}">
+						<ContentPresenter
+								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+								RecognizesAccessKey="True" />
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter Property="Foreground">
+								<Setter.Value>
+									<SolidColorBrush Color="{DynamicResource DisabledForegroundColor}" />
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+
+						<EventTrigger RoutedEvent="MouseEnter">
+							<BeginStoryboard>
+								<Storyboard>
+									<ColorAnimation Storyboard.TargetProperty="Foreground.Color"
+														Duration="0:0:0.2" To="#FFFFFFFF"/>
+									<ThicknessAnimation Storyboard.TargetProperty="BorderThickness"
+															Duration="0:0:0.2" To="0,0,0,3"/>
+								</Storyboard>
+							</BeginStoryboard>
+						</EventTrigger>
+						<EventTrigger RoutedEvent="MouseLeave">
+							<BeginStoryboard>
+								<Storyboard>
+									<ColorAnimation Storyboard.TargetProperty="Foreground.Color"
+														Duration="0:0:0.2" To="#FF000B65"/>
+									<ThicknessAnimation Storyboard.TargetProperty="BorderThickness"
+															Duration="0:0:0.2" To="0"/>
+								</Storyboard>
+							</BeginStoryboard>
+						</EventTrigger>
+
+						<EventTrigger RoutedEvent="PreviewMouseDown">
+							<BeginStoryboard>
+								<Storyboard>
+									<ColorAnimation Storyboard.TargetProperty="Foreground.Color"
+														Duration="0:0:0.15" To="#FF000B65"/>
+									<ThicknessAnimation Storyboard.TargetProperty="BorderThickness"
+															Duration="0:0:0.15" To="0"/>
+								</Storyboard>
+							</BeginStoryboard>
+						</EventTrigger>
+						<EventTrigger RoutedEvent="PreviewMouseUp">
+							<BeginStoryboard>
+								<Storyboard>
+									<ColorAnimation Storyboard.TargetProperty="Foreground.Color"
+														Duration="0:0:0.15" To="#FFFFFFFF"/>
+									<ThicknessAnimation Storyboard.TargetProperty="BorderThickness"
+															Duration="0:0:0.15" To="0,0,0,3"/>
+								</Storyboard>
+							</BeginStoryboard>
+						</EventTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
 	<Style x:Key="HeaderItems" BasedOn="{StaticResource {x:Type Label}}" TargetType="{x:Type Label}">
 		<Setter Property="Foreground" Value="#FFA2A2A2"/>
 		<Setter Property="FontFamily" Value="Berlin Sans FB"/>
@@ -214,6 +290,74 @@
 		</Setter>
 	</Style>
 
+	<Style x:Key="InputCloseItem" BasedOn="{StaticResource {x:Type Label}}" TargetType="{x:Type Label}">
+		<Setter Property="Foreground" Value="#FF000B65"/>
+		<Setter Property="FontFamily" Value="Berlin Sans FB"/>
+		<Setter Property="FontSize" Value="30"/>
+		<Setter Property="FontWeight" Value="Bold"/>
+		<Setter Property="Visibility" Value="Visible"/>
+		<Setter Property="VerticalAlignment" Value="Top"/>
+		<Setter Property="HorizontalAlignment" Value="Right"/>
+		<Setter Property="Margin" Value="12,7"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Label">
+					<Border
+							BorderThickness="{TemplateBinding BorderThickness}"
+							BorderBrush="{TemplateBinding BorderBrush}">
+						<ContentPresenter
+								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+								RecognizesAccessKey="True" />
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter Property="Foreground">
+								<Setter.Value>
+									<SolidColorBrush Color="{DynamicResource DisabledForegroundColor}" />
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+
+						<EventTrigger RoutedEvent="MouseEnter">
+							<BeginStoryboard>
+								<Storyboard>
+									<ColorAnimation Storyboard.TargetProperty="Foreground.Color"
+														Duration="0:0:0.2" To="Red"/>
+								</Storyboard>
+							</BeginStoryboard>
+						</EventTrigger>
+						<EventTrigger RoutedEvent="MouseLeave">
+							<BeginStoryboard>
+								<Storyboard>
+									<ColorAnimation Storyboard.TargetProperty="Foreground.Color"
+														Duration="0:0:0.2" To="#FF000B65"/>
+								</Storyboard>
+							</BeginStoryboard>
+						</EventTrigger>
+
+						<EventTrigger RoutedEvent="PreviewMouseDown">
+							<BeginStoryboard>
+								<Storyboard>
+									<ColorAnimation Storyboard.TargetProperty="Foreground.Color"
+														Duration="0:0:0.15" To="#FF000B65"/>
+								</Storyboard>
+							</BeginStoryboard>
+						</EventTrigger>
+						<EventTrigger RoutedEvent="PreviewMouseUp">
+							<BeginStoryboard>
+								<Storyboard>
+									<ColorAnimation Storyboard.TargetProperty="Foreground.Color"
+														Duration="0:0:0.15" To="Red"/>
+								</Storyboard>
+							</BeginStoryboard>
+						</EventTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
 	<Style x:Key="ChoiceItems" BasedOn="{StaticResource {x:Type Label}}" TargetType="{x:Type Label}">
 		<Setter Property="Foreground" Value="#FFA2A2A2"/>
 		<Setter Property="Background" Value="#26000000"/>

@@ -146,6 +146,74 @@
 		</Setter>
 	</Style>
 
+	<Style x:Key="CloseItem" BasedOn="{StaticResource {x:Type Label}}" TargetType="{x:Type Label}">
+		<Setter Property="Foreground" Value="#FFA2A2A2"/>
+		<Setter Property="FontFamily" Value="Berlin Sans FB"/>
+		<Setter Property="FontSize" Value="30"/>
+		<Setter Property="FontWeight" Value="Bold"/>
+		<Setter Property="Visibility" Value="Visible"/>
+		<Setter Property="VerticalAlignment" Value="Top"/>
+		<Setter Property="HorizontalAlignment" Value="Right"/>
+		<Setter Property="Margin" Value="12,7"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Label">
+					<Border
+							BorderThickness="{TemplateBinding BorderThickness}"
+							BorderBrush="{TemplateBinding BorderBrush}">
+						<ContentPresenter
+								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+								RecognizesAccessKey="True" />
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter Property="Foreground">
+								<Setter.Value>
+									<SolidColorBrush Color="{DynamicResource DisabledForegroundColor}" />
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+
+						<EventTrigger RoutedEvent="MouseEnter">
+							<BeginStoryboard>
+								<Storyboard>
+									<ColorAnimation Storyboard.TargetProperty="Foreground.Color"
+														Duration="0:0:0.2" To="Red"/>
+								</Storyboard>
+							</BeginStoryboard>
+						</EventTrigger>
+						<EventTrigger RoutedEvent="MouseLeave">
+							<BeginStoryboard>
+								<Storyboard>
+									<ColorAnimation Storyboard.TargetProperty="Foreground.Color"
+														Duration="0:0:0.2" To="#FFA2A2A2"/>
+								</Storyboard>
+							</BeginStoryboard>
+						</EventTrigger>
+
+						<EventTrigger RoutedEvent="PreviewMouseDown">
+							<BeginStoryboard>
+								<Storyboard>
+									<ColorAnimation Storyboard.TargetProperty="Foreground.Color"
+														Duration="0:0:0.15" To="#FFA2A2A2"/>
+								</Storyboard>
+							</BeginStoryboard>
+						</EventTrigger>
+						<EventTrigger RoutedEvent="PreviewMouseUp">
+							<BeginStoryboard>
+								<Storyboard>
+									<ColorAnimation Storyboard.TargetProperty="Foreground.Color"
+														Duration="0:0:0.15" To="Red"/>
+								</Storyboard>
+							</BeginStoryboard>
+						</EventTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
 	<Style x:Key="ChoiceItems" BasedOn="{StaticResource {x:Type Label}}" TargetType="{x:Type Label}">
 		<Setter Property="Foreground" Value="#FFA2A2A2"/>
 		<Setter Property="Background" Value="#26000000"/>

@@ -4,6 +4,7 @@ using EnglishTests.Interfaces;
 using EnglishTests.Logic;
 using EnglishTests.Models;
 using EnglishTests.Parse;
+using EnglishTests.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,9 +39,7 @@ namespace TeEn.Frames
 				switch(choiceLabel.Content)
 				{
 					case "5":
-						//	NavigationService.Navigate(new TestPage(new List<string>(new List<string>() { "Apple", "Banana", "Behaviour", "Assert", "Combine" })));
-
-						IParsable parse = new ParseTxt();
+						/*IParsable parse = new ParseTxt();
 
 						var fileRepository = new TxtFileRepository("file.txt");
 
@@ -48,9 +47,7 @@ namespace TeEn.Frames
 
 						var rowModels = parse.Parse(lines).ToList();
 
-						//	var checkDataModels = rowModels.Select(row => RandomRange.GetToCheckDataModel(row, CompareMode.Light));
-
-						var randomParts = rowModels.Select(row => RandomRange.GetLightRandomPartOf(row)).ToList();
+						var randomParts = rowModels.Select(row => RandomRange.GetRandomElementOf(row)).ToList();
 
 						for (int i = 0; i < rowModels.Count; i++)
 						{
@@ -67,15 +64,9 @@ namespace TeEn.Frames
 								CompareWith = (RowModelPart)(Convert.ToInt32(randomParts[i].Item1 == RowModelPart.LeftPart)),
 								CompareMode = CompareMode.Light
 							});
-						}
+						}*/
 
-						NavigationService.Navigate(new TestPage(checkDataModels));
-
-						//	NavigationService.Navigate(new TestPage(randomParts.Select(part => part.Value).ToList()));
-
-						//	NavigationService.Navigate(new TestPage(rowModels.Select(row => row.LeftPart).ToList()));
-
-						//	NavigationService.Navigate(new TestPage(rowModels.Select(row => RandomRange.GetRandomPart(row).Value).ToList()));
+						NavigationService.Navigate(new TestPage("file.txt", 5, CompareMode.Light));
 
 						break;
 					default:

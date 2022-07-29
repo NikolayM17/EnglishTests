@@ -99,7 +99,7 @@ namespace EnglishTests.Logic
 			return new KeyValuePair<RowModelPart, string>(key, value);
 		}
 
-		public static (RowModelPart, int) GetLightRandomPartOf(RowModel rowModel)
+		public static (RowModelPart, int) GetRandomElementOf(RowModel rowModel)
 		{
 			var strRowModel = rowModel.ToStringArray();
 			int randomIndex = new Random().Next(0, strRowModel.Count());

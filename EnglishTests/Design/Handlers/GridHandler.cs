@@ -20,38 +20,52 @@ namespace TeEn.Handlers
 
 			result.Height = 50;
 			result.FontSize = 20;
-			result.Foreground = Brushes.Gray;
-			result.CaretBrush = Brushes.Gray;
+			result.Foreground = Brushes.LightGray;
+			result.BorderBrush = Brushes.Gray;
+			result.CaretBrush = Brushes.LightGray;
 			result.FontFamily = new FontFamily("Stark");
-			result.Margin = new Thickness(10);
-			result.SelectionBrush = Brushes.Gray;
-			result.SelectionTextBrush = Brushes.White;
-
+			result.Margin = new Thickness(15);
+			result.Padding = new Thickness(0,0,0,5);
+			result.SelectionBrush = Brushes.DarkGray;
+			
 			MaterialDesignThemes.Wpf.HintAssist.SetHint(result, hintText);
+			MaterialDesignThemes.Wpf.HintAssist.SetHintOpacity(result, 0.8);
 			MaterialDesignThemes.Wpf.HintAssist.SetForeground(result, Brushes.White);
 			MaterialDesignThemes.Wpf.TextFieldAssist.SetUnderlineBrush(result, Brushes.White);
 
 			return result;
 		}
 
-		/*public GridHandler(ResourceDictionary resources)
+		public static void SetIrregularStyle(TextBox textBox, string expectedData)
 		{
-			resources.MergedDictionaries
+			Brush brush = new SolidColorBrush(Color.FromRgb(255,75,25));
+
+			textBox.Foreground = brush;
+
+			MaterialDesignThemes.Wpf.HintAssist.SetHint(textBox, HintAssist.GetHint(textBox) + " — " + expectedData);
+			MaterialDesignThemes.Wpf.HintAssist.SetForeground(textBox, brush);
+			MaterialDesignThemes.Wpf.TextFieldAssist.SetUnderlineBrush(textBox, brush);
 		}
 
-		private Label CreateLabel()
+		public static void SetRegularStyle(TextBox textBox, string expectedData)
 		{
+			textBox.Foreground = Brushes.Lime;
 
+			MaterialDesignThemes.Wpf.HintAssist.SetHint(textBox, HintAssist.GetHint(textBox) + " — " + expectedData);
+			MaterialDesignThemes.Wpf.HintAssist.SetForeground(textBox, Brushes.Lime);
+			MaterialDesignThemes.Wpf.TextFieldAssist.SetUnderlineBrush(textBox, Brushes.Lime);
 		}
 
-		private TextBox CreateTextBox()
+		public static void DisableTextBoxes(UIElementCollection uIElementCollection)
 		{
-
+			foreach (UIElement element in uIElementCollection)
+			{
+				if (element is TextBox textBox)
+				{
+					textBox.IsReadOnly = true;
+					textBox.IsReadOnlyCaretVisible = false;
+				}
+			}
 		}
-
-		private void HideElements()
-		{
-
-		}*/
 	}
 }

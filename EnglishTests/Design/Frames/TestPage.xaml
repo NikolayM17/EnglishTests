@@ -7,7 +7,8 @@
       xmlns:local="clr-namespace:TeEn.Frames" xmlns:col="clr-namespace:System.Collections;assembly=mscorlib" xmlns:sys="clr-namespace:System;assembly=mscorlib"
 	  mc:Ignorable="d" 
       d:DesignHeight="420" d:DesignWidth="800"
-      Title="TestPage">
+      Title="TestPage"
+	  KeyDown="Page_KeyDown">
 
 	<Page.Resources>
 		<Style x:Key="ScrollBarLineButton"
@@ -215,15 +216,15 @@
 			   Grid.Column="4" Grid.Row="5"/>
 		</ListBox>-->
 		
-		<Label x:Name="RightNav" Content="Next" Style="{StaticResource NavLabels}"
-			   MouseDown="RightNav_MouseDown"
+		<Label x:Name="FinishButtonLabel" Content="Finish" Style="{StaticResource NavLabels}"
+			   MouseDown="FinishButtonLabel_MouseDown"
 			   FontSize="30"
 			   VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
 			   VerticalAlignment="Stretch"
 			   Grid.Column="5" Grid.Row="6"/>
 
-		<Label x:Name="LeftNav" Content="Back" Style="{StaticResource NavLabels}"
-			   
+		<Label x:Name="TryAgainButtonLabel" Content="⭯" Style="{StaticResource NavLabels}"
+			   MouseDown="TryAgainButtonLabel_MouseDown"
 			   FontSize="30"
 			   VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
 			   VerticalAlignment="Stretch"

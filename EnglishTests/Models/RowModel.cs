@@ -25,11 +25,12 @@ namespace EnglishTests.Models
 
 		public bool EqualWith(object? obj, RowModelPart compareWith, CompareMode mode)
 			=> mode == CompareMode.Hard ?
-			HardLevelCompare(obj, compareWith) : LightCompare(obj, compareWith);
+			HardLevelCompare(obj, compareWith) : LightLevelCompare(obj, compareWith);
 
-		private bool LightCompare(object? obj, RowModelPart compareWith)
+		private bool LightLevelCompare(object? obj, RowModelPart compareWith)
 			=> compareWith == RowModelPart.LeftPart ?
-			CompareWithLeftPart((string)obj) : CompareWithRightPart((string)obj);
+				LightLevelCompareWithLeftPart((string[])obj) : LightLevelCompareWithRightPart((string[])obj);
+			//	CompareWithLeftPart((string)obj) : CompareWithRightPart((string)obj);
 
 		private bool HardLevelCompare(object? obj, RowModelPart compareWith)
 		{
@@ -94,7 +95,7 @@ namespace EnglishTests.Models
 		private bool CompareWithRightPart(string str)
 			=> ToLower(RightPart).Contains(str.ToLower());
 
-		private bool LightLevelCompareWithRightPart(string[] arr)
+		public bool LightLevelCompareWithRightPart(string[] arr)
 		{
 			var tempRightPart = ToLower(RightPart);
 			var tempArr = ToLower(arr);
@@ -103,6 +104,15 @@ namespace EnglishTests.Models
 			{
 				if (tempArr.Contains(str)) return true;
 			}
+
+			return false;
+		}
+
+		public bool LightLevelCompareWithLeftPart(string[] arr)
+		{
+			var tempArr = ToLower(arr);
+			
+			if (arr.Contains(LeftPart.ToLower())) return true;
 
 			return false;
 		}

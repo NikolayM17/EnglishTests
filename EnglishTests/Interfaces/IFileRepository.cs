@@ -4,10 +4,9 @@ namespace EnglishTests.Interfaces
 {
 	public interface IFileRepository
 	{
-		void OpenFile(string path);
+		public string FilePath { get; }
+		public int RowCount { get; }
 
 		IEnumerable<string?> GetLines(params int[] lineNumbers);
-
-		int CountLines();
 	}
 }

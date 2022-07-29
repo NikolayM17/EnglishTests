@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnglishTests.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,9 +16,33 @@ namespace EnglishTests.Models.ViewModels
 
 		public RowViewModel(string leftPart, string[] rightPart) : base(leftPart, rightPart) { }
 
+		public string GetAnotherPartToString(RowModelPart thisPart)
+		{
+			return thisPart is RowModelPart.RightPart ? LeftPart : RightPartToString();
+		}
+		public string GetPartToString(RowModelPart thisPart)
+		{
+			return thisPart is RowModelPart.RightPart ? RightPartToString() : LeftPart;
+		}
+
+		private string RightPartToString()
+		{
+			string result = RightPart[0];
+
+			if (RightPart.Length > 1)
+			{
+				foreach (var rowElement in RightPart[1..])
+				{
+					result += ", " + rowElement;
+				}
+			}
+
+			return result;
+		}
+
 		public override string ToString()
 		{
-			var result = LeftPart + " — " + RightPart[0];
+			var result = LeftPart + " — " + RightPartToString(); /* + RightPart[0];
 
 			if (RightPart.Length > 1)
 			{
@@ -25,7 +50,7 @@ namespace EnglishTests.Models.ViewModels
 				{
 					result += ", " + RightPart[i];
 				}
-			}
+			}*/
 
 			return result;
 		}

@@ -44,15 +44,5 @@ namespace EnglishTests.FileRepositories
 				yield return File.ReadLines(FilePath).Skip(number - 1).FirstOrDefault();
 			}
 		}
-
-		public int CountLines()
-		{
-			return 0;
-		}
-
-		public void OpenFile(string path)
-		{
-			throw new NotImplementedException();
-		}
 	}
 }

@@ -66,5 +66,16 @@ namespace EnglishTests.Parse
 				return new RowViewModel(translatePartsOfLine.First(), null);
 			}
 		}
+
+		public static IEnumerable<string>? ParseLineToArray(string line)
+		{
+			string[] result = new string[] { line };
+
+			result = result[0].Contains(", ") ?
+				result[0].Split(", ") : result[0].Contains(",") ?
+					result[0].Split(",") : result;
+
+			return result;
+		}
 	}
 }

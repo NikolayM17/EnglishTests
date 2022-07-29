@@ -42,12 +42,9 @@
 
 			<Label Style="{StaticResource HeaderItems}" Content="⚙️"
 				   HorizontalAlignment="Left"/>
-			<Label Content="⮿" Style="{StaticResource HeaderItems}"
-				   FontWeight="Bold"
-				   HorizontalAlignment="Right"
-				   FontSize="30"
+			<Label Content="⮿" Style="{StaticResource CloseItem}"
 				   MouseDown="X_MouseDown" MouseUp="X_MouseUp"/>
-			<Label Width="720" Height="40" Margin="20,0,0,0"
+			<Label Width="720" Height="40" Margin="20,0"
 				   HorizontalAlignment="Center" VerticalAlignment="Top"
 				   MouseDown="Header_MouseDown"
 				   />

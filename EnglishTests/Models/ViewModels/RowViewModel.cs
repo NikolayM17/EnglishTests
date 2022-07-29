@@ -1,9 +1,5 @@
 ﻿using EnglishTests.Enums;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EnglishTests.Models.ViewModels
 {
@@ -42,15 +38,7 @@ namespace EnglishTests.Models.ViewModels
 
 		public override string ToString()
 		{
-			var result = LeftPart + " — " + RightPartToString(); /* + RightPart[0];
-
-			if (RightPart.Length > 1)
-			{
-				for (int i = 1; i < RightPart.Length; i++)
-				{
-					result += ", " + RightPart[i];
-				}
-			}*/
+			var result = LeftPart + " — " + RightPartToString();
 
 			return result;
 		}

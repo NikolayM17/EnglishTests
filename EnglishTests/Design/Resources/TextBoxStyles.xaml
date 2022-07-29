@@ -26,47 +26,6 @@
 						<ScrollViewer x:Name="PART_ContentHost" Margin="0"/>
 					</Border>
 					<ControlTemplate.Triggers>
-						<!--<Trigger Property="IsEnabled" Value="false">
-							<Setter Property="Foreground">
-								<Setter.Value>
-									<SolidColorBrush Color="{DynamicResource DisabledForegroundColor}" />
-								</Setter.Value>
-							</Setter>
-						</Trigger>-->
-						<!--<EventTrigger RoutedEvent="MouseEnter">
-							<BeginStoryboard>
-								<Storyboard>
-									<ColorAnimation Storyboard.TargetProperty="Foreground.Color"
-													Duration="0:0:0.2" To="#FFFFFFFF"/>
-								</Storyboard>
-							</BeginStoryboard>
-						</EventTrigger>
-						<EventTrigger RoutedEvent="MouseLeave">
-							<BeginStoryboard>
-								<Storyboard>
-									<ColorAnimation Storyboard.TargetProperty="Foreground.Color"
-													Duration="0:0:0.2" To="#FFC8C8C8"/>
-								</Storyboard>
-							</BeginStoryboard>
-						</EventTrigger>
-
-						<EventTrigger RoutedEvent="PreviewMouseDown">
-							<BeginStoryboard>
-								<Storyboard>
-									<ColorAnimation Storyboard.TargetProperty="Foreground.Color"
-													Duration="0:0:0.15" To="#FFC8C8C8"/>
-								</Storyboard>
-							</BeginStoryboard>
-						</EventTrigger>
-						<EventTrigger RoutedEvent="PreviewMouseUp">
-							<BeginStoryboard>
-								<Storyboard>
-									<ColorAnimation Storyboard.TargetProperty="Foreground.Color"
-													Duration="0:0:0.15" To="#FFFFFFFF"/>
-								</Storyboard>
-							</BeginStoryboard>
-						</EventTrigger>
-						-->
 						<EventTrigger RoutedEvent="GotFocus">
 							<BeginStoryboard>
 								<Storyboard>
@@ -91,32 +50,6 @@
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
-		<!--<Style.Triggers>
-			<Trigger Property="IsFocused" Value="True">
-				<Trigger.EnterActions>
-					<BeginStoryboard>
-						<Storyboard>
-							<ColorAnimation Storyboard.TargetProperty="Foreground.Color"
-													Duration="0:0:0.2" To="Bisque"/>
-							<ColorAnimation Storyboard.TargetProperty="BorderBrush.Color"
-													Duration="0:0:0.2" To="Bisque"/>
-						</Storyboard>
-					</BeginStoryboard>
-				</Trigger.EnterActions>
-			</Trigger>
-			<Trigger Property="IsFocused" Value="False">
-				<Trigger.EnterActions>
-					<BeginStoryboard>
-						<Storyboard>
-							<ColorAnimation Storyboard.TargetProperty="Foreground.Color"
-													Duration="0:0:0.2" To="Black"/>
-							<ColorAnimation Storyboard.TargetProperty="BorderBrush.Color"
-													Duration="0:0:0.2" To="Black"/>
-						</Storyboard>
-					</BeginStoryboard>
-				</Trigger.EnterActions>
-			</Trigger>
-		</Style.Triggers>-->
 	</Style>
 
 </ResourceDictionary>

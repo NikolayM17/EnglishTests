@@ -1,6 +1,5 @@
 ﻿using EnglishTests.Enums;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -30,7 +29,6 @@ namespace EnglishTests.Models
 		private bool LightLevelCompare(object? obj, RowModelPart compareWith)
 			=> compareWith == RowModelPart.LeftPart ?
 				LightLevelCompareWithLeftPart((string[])obj) : LightLevelCompareWithRightPart((string[])obj);
-			//	CompareWithLeftPart((string)obj) : CompareWithRightPart((string)obj);
 
 		private bool HardLevelCompare(object? obj, RowModelPart compareWith)
 		{
@@ -64,7 +62,7 @@ namespace EnglishTests.Models
 
 		public IEnumerable<string> ToStringArray()
 		{
-			var result = new List<string>(RightPart) { LeftPart };  //	result.Add(LeftPart);
+			var result = new List<string>(RightPart) { LeftPart };
 
 			return result;
 		}

@@ -1,4 +1,5 @@
-﻿using MaterialDesignThemes.Wpf;
+﻿using EnglishTests.Extensions;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace TeEn.Handlers
 			result.BorderBrush = Brushes.Gray;
 			result.CaretBrush = Brushes.LightGray;
 			result.FontFamily = new FontFamily("Stark");
-			result.Margin = new Thickness(15);
+			result.Margin = new Thickness(12);
 			result.Padding = new Thickness(0,0,0,5);
 			result.SelectionBrush = Brushes.DarkGray;
 			
@@ -42,7 +43,7 @@ namespace TeEn.Handlers
 
 			textBox.Foreground = brush;
 
-			MaterialDesignThemes.Wpf.HintAssist.SetHint(textBox, HintAssist.GetHint(textBox) + " — " + expectedData);
+			MaterialDesignThemes.Wpf.HintAssist.SetHint(textBox, HintAssist.GetHint(textBox) + " — " + expectedData.ToTitleCase());
 			MaterialDesignThemes.Wpf.HintAssist.SetForeground(textBox, brush);
 			MaterialDesignThemes.Wpf.TextFieldAssist.SetUnderlineBrush(textBox, brush);
 		}
@@ -51,7 +52,7 @@ namespace TeEn.Handlers
 		{
 			textBox.Foreground = Brushes.Lime;
 
-			MaterialDesignThemes.Wpf.HintAssist.SetHint(textBox, HintAssist.GetHint(textBox) + " — " + expectedData);
+			MaterialDesignThemes.Wpf.HintAssist.SetHint(textBox, HintAssist.GetHint(textBox) + " — " + expectedData.ToTitleCase());
 			MaterialDesignThemes.Wpf.HintAssist.SetForeground(textBox, Brushes.Lime);
 			MaterialDesignThemes.Wpf.TextFieldAssist.SetUnderlineBrush(textBox, Brushes.Lime);
 		}

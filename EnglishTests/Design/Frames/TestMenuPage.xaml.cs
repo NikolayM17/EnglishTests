@@ -1,25 +1,9 @@
 ﻿using EnglishTests.Design;
 using EnglishTests.Enums;
-using EnglishTests.FileRepositories;
-using EnglishTests.Interfaces;
-using EnglishTests.Logic;
-using EnglishTests.Models;
-using EnglishTests.Parse;
-using EnglishTests.Service;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace TeEn.Frames
 {
@@ -60,14 +44,7 @@ namespace TeEn.Frames
 				{
 					NavigationService.Navigate(new TestPage("file.txt", wordsCount, CompareMode.Light));
 				}
-
-				/*MessageBox.Show(childWindow.wordsCountTextBox.Text);*/
 			}
-
-			/*if (sender is Label choiceLabel)
-			{
-				NavigationService.Navigate(new TestPage("file.txt", int.Parse(choiceLabel.Content.ToString()), CompareMode.Light));
-			}*/
 		}
 		private void wordsLabel_MouseUp(object sender, MouseButtonEventArgs e)
 		{

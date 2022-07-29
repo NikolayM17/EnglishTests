@@ -164,58 +164,7 @@
 			<ColumnDefinition/>
 			<ColumnDefinition/>
 		</Grid.ColumnDefinitions>
-		
-		<!--<ListBox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="5">
-			<TextBox Text="wert" x:Name="tb1" Style="{StaticResource TextBoxStyle}"/>
-			<Label x:Name="l1" Content="Apple" Style="{StaticResource ForTranslateItems}"
-			   Grid.Column="2" Grid.Row="1"/>
 
-			<TextBox x:Name="tb2" Style="{StaticResource TextBoxStyle}"
-				 Grid.Column="1" Grid.ColumnSpan="2"  Grid.Row="2"/>
-			<Label x:Name="l2" Content="Banana" Style="{StaticResource ForTranslateItems}"
-			   Grid.Column="2" Grid.Row="2"/>
-
-			<TextBox x:Name="tb3" Style="{StaticResource TextBoxStyle}"
-				 Grid.Column="1" Grid.ColumnSpan="2"  Grid.Row="3"/>
-			<Label x:Name="l3" Content="Water" Style="{StaticResource ForTranslateItems}"
-			   Grid.Column="2" Grid.Row="3"/>
-
-			<TextBox x:Name="tb4" Style="{StaticResource TextBoxStyle}"
-				 Grid.Column="1" Grid.ColumnSpan="2"  Grid.Row="4"/>
-			<Label x:Name="l4" Content="Blue" Style="{StaticResource ForTranslateItems}"
-			   Grid.Column="2" Grid.Row="4"/>
-
-			<TextBox x:Name="tb5" Style="{StaticResource TextBoxStyle}"
-				 Grid.Column="1" Grid.ColumnSpan="2"  Grid.Row="5"/>
-			<Label x:Name="l5" Content="Forest" Style="{StaticResource ForTranslateItems}"
-			   Grid.Column="2" Grid.Row="5"/>
-
-			<TextBox Style="{StaticResource TextBoxStyle}"
-				 Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="1"/>
-			<Label Content="Apple" Style="{StaticResource ForTranslateItems}"
-			   Grid.Column="4" Grid.Row="1"/>
-
-			<TextBox Style="{StaticResource TextBoxStyle}"
-				 Grid.Column="3" Grid.ColumnSpan="2"  Grid.Row="2"/>
-			<Label Content="Banana" Style="{StaticResource ForTranslateItems}"
-			   Grid.Column="4" Grid.Row="2"/>
-
-			<TextBox Style="{StaticResource TextBoxStyle}"
-				 Grid.Column="3" Grid.ColumnSpan="2"  Grid.Row="3"/>
-			<Label Content="Water" Style="{StaticResource ForTranslateItems}"
-			   Grid.Column="4" Grid.Row="3"/>
-
-			<TextBox Style="{StaticResource TextBoxStyle}"
-				 Grid.Column="3" Grid.ColumnSpan="2"  Grid.Row="4"/>
-			<Label Content="Blue" Style="{StaticResource ForTranslateItems}"
-			   Grid.Column="4" Grid.Row="4"/>
-
-			<TextBox Style="{StaticResource TextBoxStyle}"
-				 Grid.Column="3" Grid.ColumnSpan="2"  Grid.Row="5"/>
-			<Label Content="Forest" Style="{StaticResource ForTranslateItems}"
-			   Grid.Column="4" Grid.Row="5"/>
-		</ListBox>-->
-		
 		<Label x:Name="FinishButtonLabel" Content="Finish" Style="{StaticResource NavLabels}"
 			   MouseDown="FinishButtonLabel_MouseDown"
 			   FontSize="30"
